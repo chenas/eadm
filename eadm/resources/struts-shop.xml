@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="shop" namespace="/seller/shop" extends="default">		
+		<!-- 所有商店  -->
+		<action name="allShop" class="com.eshop.action.UserShopListAction" method="allShop" >
+			<result name="list" type="json">
+			</result>
+			<result name="login">
+				/pages/login.jsp
+			</result>
+		</action>
+				
+		<!-- 所有商店  -->
+		<action name="shopList" class="com.eshop.action.UserShopListAction" >
+			<result name="list" >
+				/Seller/Store/storeList.jsp
+			</result>
+			<result name="login">
+				/pages/login.jsp
+			</result>
+		</action>
+		
+		<!-- 新增商店  -->
+		<action name="submitAdd" class="com.eshop.action.UserShopAction" method="submitAdd" >
+			<result name="list" >
+				/Seller/Store/addStore.jsp
+			</result>
+			<result name="login">
+				/pages/login.jsp
+			</result>
+		</action>
+		
+	</package>
+</struts>

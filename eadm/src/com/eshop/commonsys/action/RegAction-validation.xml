@@ -1,0 +1,69 @@
+<!DOCTYPE validators PUBLIC
+  "-//Apache Struts//XWork Validator 1.0.3//EN"
+  "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+
+<!-- 
+<field name="userBuyer">
+   使用visitor校验器
+   <field-validator type="visitor">
+    指定校验规则文件的context
+    <param name="context">userContext</param>
+    指定校验失败后的提示信息是否添加下面的前缀
+    <param name="appendPrefix">true</param>
+    指定校验失败的提示信息的前缀
+    <message>用户的：</message>
+   </field-validator>
+</field> -->
+
+
+ <field name="name">
+      <field-validator type="requiredstring">
+                    <param name="trim">true</param>
+ 		<message>请输入用户名</message>
+	 </field-validator>
+  </field>
+  
+   <field name="name">
+      <field-validator type="stringlength">
+                    <param name="minLength">1</param>
+                    <param name="maxLength">8</param>
+ 		<message>用户名太长了</message>
+	 </field-validator>
+  </field>
+  
+ <field name="email">
+      <field-validator type="requiredstring">
+                    <param name="trim">true</param>
+ 		<message>请输入邮箱地址</message>
+	 </field-validator>
+  </field>
+  <field name="email">
+      <field-validator type="email">
+          <message>邮箱格式不正确</message>
+      </field-validator>
+  </field>
+  
+  <field name="password">
+      <field-validator type="stringlength">
+  		<param name="minLength">6</param>
+ 		<message>您的密码长度必须大于5</message>
+	 </field-validator>
+  </field>
+  
+  <field name="password2">
+      <field-validator type="fieldexpression">
+        <!--指定逻辑表达式 -->
+        <param name="expression"> (password eq password2)</param>
+         <message>密码必须和确认密码一样</message>
+      </field-validator>
+  </field>
+
+  <field name="securityCode">
+      <field-validator type="requiredstring">
+      	<param name="trim">true</param>
+ 		<message>请输入验证码</message>
+	 </field-validator>
+  </field>
+  
+</validators>

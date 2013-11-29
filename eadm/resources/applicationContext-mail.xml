@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${mail.host}" />
+		<property name="port" value="${mail.port}" />
+		<property name="username" value="${mail.username}" />
+		<property name="password" value="${mail.password}" />
+		<property name="defaultEncoding" value="GBK"></property>
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
+				<prop key="mail.smtp.timeout">${mail.smtp.timeout}</prop>
+				<!-- <prop key="mail.smtp.starttls.enable">true</prop> <prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop> 
+					<prop key="mail.smtp.socketFactory.fallback">false</prop> -->
+			</props>
+		</property>
+	</bean>
+	<bean id="simpleMailMessage" class="org.springframework.mail.SimpleMailMessage" >
+		<property name="from">
+			<value>${mail.default.from}</value>
+		</property>
+	</bean>
+	<bean id="velocityEngine"
+		class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="velocityProperties">
+			<props>
+				<prop key="resource.loader">class</prop>
+				<prop key="class.resource.loader.class">
+					org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+				</prop>
+				<prop key="velocimacro.library"></prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="mailSenderService" class="com.base.framwork.service.mail.MailSenderService">
+		<property name="mailSender" ref="mailSender" />
+		<property name="simpleMailMessage" ref="simpleMailMessage" />
+		<property name="velocityEngine" ref="velocityEngine" />
+		<property name="subject" value="上理勤助电商网" />
+		<property name="content" value="${mail.content}" />
+		<property name="templateName" value="${mail.templateName}" />
+	</bean>
+
+</beans>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="order" namespace="/seller/order" extends="default">
+		<!-- 进入新订单列表 -->
+		<action name="newOrder" class="com.eshop.action.OrderMenuListAction" method="newOrder">
+			<result name="list">
+				/Seller/Order/list0-Order.jsp
+			</result>
+			<result name="login">
+				/pages/login.jsp
+			</result>
+		</action>
+		
+	</package>
+</struts>

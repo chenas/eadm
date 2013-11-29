@@ -1,0 +1,50 @@
+<!DOCTYPE validators PUBLIC
+  "-//Apache Struts//XWork Validator 1.0.3//EN"
+  "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+
+ <field name="schoolArea">
+      <field-validator type="requiredstring">
+                    <param name="trim">true</param>
+ 		<message>请选择校区</message>
+	 </field-validator>
+  </field>
+  
+   <field name="building">
+      <field-validator type="requiredstring">
+                    <param name="trim">true</param>
+ 		<message>请输入具体地址</message>
+	 </field-validator>
+  </field>
+    
+   <field name="consignee">
+      <field-validator type="requiredstring">
+                    <param name="trim">true</param>
+ 		<message>请输入收货人</message>
+	 </field-validator>
+  </field>
+        
+   <field name="consignee">
+      <field-validator type="stringlength">
+                    <param name="minLength">1</param>
+                    <param name="maxLength">8</param>
+ 		<message>用户名太长了</message>
+	 </field-validator>
+  </field>
+  
+   <field name="phone">
+      <field-validator type="requiredstring">
+                    <param name="trim">true</param>
+ 		<message>请输入手机号码</message>
+	 </field-validator>
+  </field>
+ 
+  <field name="phone"> 
+  <field-validator type="regex"> 
+   <param name="trim">true</param> 
+   <param name="expression"><![CDATA[(^((13[0-9])|(15[0-9])|(18[0-9]))\d{8}$)]]></param> 
+   <message>请正确输入手机号码</message> 
+  </field-validator> 
+ </field> 
+  
+</validators>

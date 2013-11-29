@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+
+    <constant name="struts.ui.theme" value="simple" />
+    
+    <constant name="struts.custom.i18n.resources" value="messages"></constant>   
+    
+<package name="default" namespace="/" extends="struts-default" >
+    <result-types>
+    	<result-type name="json" class="org.apache.struts2.json.JSONResult" />
+    </result-types>
+</package>
+	
+	<include file="struts-biz.xml" />
+<!-- 	<include file="/com/security/action/admin/admin.xml" />  -->
+
+</struts>
+	

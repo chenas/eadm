@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 买家用户登录 -->
+	<package name="userLogin" namespace="/commonsys" extends="default">
+		<action name="login" class="com.eshop.commonsys.action.BuyerLoginAction">
+			<result name="success" >/loginS.jsp</result>
+			<result name="error">/pages/login.jsp</result>
+			<result name="input">/pages/login.jsp</result>
+		</action>
+		
+		<action name="logout" class="com.eshop.commonsys.action.BuyerLoginAction" method="logout">
+			<result name="success">/pages/login.jsp</result>
+			<result name="error">/pages/login.jsp</result>
+			<result name="input">/pages/login.jsp</result>
+		</action>
+	</package>
+	
+	
+	<!-- 首页 -->
+	<package name="index" namespace="/" extends="default">
+		<action name="welcome" class="com.eshop.action.AdvertisementListAction" method="intoWelcome">
+			<result name="list">
+					/index.jsp
+			</result>
+		</action>
+	</package>
+	
+	<package name="commonsys" namespace="/commonsys" extends="default">
+	<!-- 验证码的生成 -->
+		<action name="SecurityCodeImageAction" class="com.eshop.commonsys.action.SecurityCodeImageAction"
+			method="execute">
+			<result name="success" type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">imageStream</param>
+				<param name="bufferSize">2048</param>
+			</result>
+		</action>
+	<!-- 注册 -->
+		<action name="register" class="com.eshop.commonsys.action.RegAction">
+			<result name="input" >/pages/register.jsp</result>
+			<result name="success" >/pages/commonsys/registerSuccess.jsp</result>
+		</action>
+		
+	<!-- 邮箱验证 -->
+		<action name="mailverify" class="com.eshop.commonsys.action.MailVerifyAction">
+			<result name="success" >/pages/commonsys/mailVerify.jsp</result>
+		</action>
+		
+	<!-- excel文件上传 -->
+		<action name="excelContent" class="com.eshop.commonsys.action.ExcelAction" method="excelContent">
+			<result name="success" >/Seller/Product/upload-Product.jsp</result>
+		</action>
+		
+	</package>
+	
+</struts>

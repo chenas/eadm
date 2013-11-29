@@ -1,0 +1,12 @@
+ 
+<html>
+<body>
+<h3>您好 $!{username}, 特价优惠!</h3>
+ 
+<div>
+    您的email地址是<a href="mailto:${toMailAddr}">$!{toMailAddr}</a>.
+  本条信息是系统自动发送，请勿回复！
+</div>
+</body>
+ 
+</html>

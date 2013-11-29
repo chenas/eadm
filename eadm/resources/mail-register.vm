@@ -1,0 +1,13 @@
+###邮件内容模板
+##提示注册成功，并且让其确认激活
+<html>
+<body>
+<h3>您好 $!{username}, 完成注册就差一步了!</h3>
+ <div><h4><a href="${url}">请戳这里完成验证</a><h4></div>
+<div>
+    您的email地址是<a href="mailto:${toMailAddr}">$!{toMailAddr}</a>.
+  本条信息是系统自动发送，请勿回复！
+</div><br>
+<div></div>
+</body>
+</html>
