@@ -6,16 +6,16 @@
 <struts>
 	<!-- 买家用户登录 -->
 	<package name="userLogin" namespace="/commonsys" extends="default">
-		<action name="login" class="com.eshop.commonsys.action.BuyerLoginAction">
-			<result name="success" >/loginS.jsp</result>
-			<result name="error">/pages/login.jsp</result>
-			<result name="input">/pages/login.jsp</result>
+		<action name="login" class="com.eshop.commonsys.action.AdmLoginAction" method="doLogin">
+			<result name="success" >/Seller/main.jsp</result>
+			<result name="error">/login.jsp</result>
+			<result name="input">/login.jsp</result>
 		</action>
 		
-		<action name="logout" class="com.eshop.commonsys.action.BuyerLoginAction" method="logout">
-			<result name="success">/pages/login.jsp</result>
-			<result name="error">/pages/login.jsp</result>
-			<result name="input">/pages/login.jsp</result>
+		<action name="logout" class="com.eshop.commonsys.action.AdmLoginAction" method="doLogout">
+			<result name="success">/login.jsp</result>
+			<result name="error">/login.jsp</result>
+			<result name="input">/login.jsp</result>
 		</action>
 	</package>
 	

@@ -157,9 +157,9 @@ a:link,a:visited {
     	<table width="750" border="0" cellspacing="0" cellpadding="0">
       <tr>
       <td align="right" height="26" style="padding-right:10px;line-height:26px;">
-        	您好：<span class="username"><s:property value="#session.seller.realname" /></span>，欢迎使用本管理系统！
-        	[<a href="" target="_blank">网站主页</a>]<s:if test="#session.seller == null">[<a href="Seller/login.jsp" target="_top">请登录</a>]</s:if>
-        	<s:elseif test="#session.seller != null">[<a href="myshop/logout-Change" target="_top">注销退出</a>]</s:elseif>&nbsp;
+        	您好：<span class="username"><s:property value="#session.userAdm.adminName" /></span>，欢迎使用本管理系统！
+        	[<a href="" target="_blank">网站主页</a>]<s:if test="#session.userAdm == null">[<a href="login.jsp" target="_top">请登录</a>]</s:if>
+        	<s:elseif test="#session.userAdm != null">[<a href="commonsys/logout" target="_top">注销退出</a>]</s:elseif>&nbsp;
       </td>
       </tr>
       <tr>
