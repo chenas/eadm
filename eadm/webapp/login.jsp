@@ -92,6 +92,5 @@ jQuery(function () {
         <div id="btm_right"></div>
     </div>
 </div>
-<s:debug></s:debug>
 </body>
 </html>

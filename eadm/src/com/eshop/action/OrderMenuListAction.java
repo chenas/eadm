@@ -44,6 +44,7 @@ public class OrderMenuListAction extends EntityListAction<OrderMenuModel> {
 	}
 	
 	public String allOrder(){
+		orderMenuFilter.setQueryString(null);
 		return intoList();
 	}
 

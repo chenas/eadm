@@ -29,7 +29,7 @@ $(document).ready(function(){
 		else if(parseInt(current) >1){
 			current--;
 			$("#current").text(current);
-			window.location.href='seller/order/newOrder?orderMenuFilter.pageNo='+current;
+			window.location.href='seller/order/allOrder?orderMenuFilter.pageNo='+current;
 			//document.pagelistfrm.submit();
 		}
 	});
@@ -40,7 +40,7 @@ $(document).ready(function(){
 		else if(parseInt(current) < parseInt(totalPage)){
 			current++;
 			$("#current").text(current);
-			window.location.href='seller/order/newOrder?orderMenuFilter.pageNo='+current;
+			window.location.href='seller/order/allOrder?orderMenuFilter.pageNo='+current;
 			//document.pagelistfrm.submit();
 		}
 	});
@@ -117,12 +117,12 @@ $(document).ready(function(){
 <tr align="right" bgcolor="#EEF4EA">
 			<td colspan="14" align="center">
         		<input id="pageNo" type="hidden" value='<s:property value="#request.pageList.pageNumber" />' />
-				<a href="seller/order/newOrder?orderMenuFilter.pageNo=1">第一页</a>&nbsp;&nbsp;
+				<a href="seller/order/allOrder?orderMenuFilter.pageNo=1">第一页</a>&nbsp;&nbsp;
 				<a href="javascript:void(0);" id="pre">上一页</a>
 				<a href="javascript:void(0);" id="current"><s:property value="#request.pageList.pageNumber" /></a>/
 				<a href="javascript:void(0);" id="totalPage"><s:property value="#request.pageList.totalPage" /></a>
 				<a href="javascript:void(0);" id="next">下一页</a>&nbsp;&nbsp;
-				<a href='seller/order/newOrder?orderMenuFilter.pageNo=<s:property value="#request.pageList.totalPage" />'>末页</a>
+				<a href='seller/order/allOrder?orderMenuFilter.pageNo=<s:property value="#request.pageList.totalPage" />'>末页</a>
 			</td>
 </tr>
 </table>
