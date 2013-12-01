@@ -32,7 +32,7 @@
                 <a href='seller/order/newOrder' target='main'>新订单</a>
             </li>
             <li>
-            	<!-- <a href='seller/order/allOrder' target='main'>所有订单</a> -->
+            	<a href='seller/order/allOrder' target='main'>所有订单</a>
             </li>
           </ul>
         </dd>

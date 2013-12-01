@@ -121,7 +121,12 @@
 	<td><s:property value="#l.counter" /></td>
 	<td><s:if test="#l.isOnsale==1">是</s:if><s:else>否</s:else></td>
 	<td><s:property value="#l.onsalePrice" /></td>
-	<td><a id="edit" href='myshop/input-Product?id=<s:property value="#l.id" />' >编辑</a> | <a id="downone" href='myshop/down-Product?id=<s:property value="#l.id" />' onclick="return confirm('确认下架?')" >下架</a></td>
+	<td><a id="edit" href='javascript:' >编辑</a> | 
+	<s:if test="isSale==0">
+	<a id="<s:property value="#l.id" />1" href='javascript:' onclick="upOne('<s:property value="#l.id" />')" >上架</a></s:if>
+	<s:if test="isSale==1">
+	<a id="<s:property value="#l.id" />1" href='javascript:'  onclick="downOne('<s:property value="#l.id" />')" >下架</a></s:if>
+	</td>
 </tr>
 </s:iterator>
 </s:else>
@@ -154,7 +159,7 @@
 
 
 <!--  搜索表单  -->
-<form name='form4' action='' method='post'>
+<form name='form4' >
 <input type='hidden' name='dopost' value='' />
 <table width='98%'  border='0' cellpadding='1' cellspacing='1' bgcolor='#CBD8AC' align="center" style="margin-top:8px">
   <tr bgcolor='#EEF4EA'>

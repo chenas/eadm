@@ -24,10 +24,12 @@ public class AdmLoginAction extends BaseAction{
 	
 	public String doLogin(){
 		if(!securityCode.equals((String)doGetSessionObject("SESSION_SECURITY_CODE"))){
+			addFieldError(securityCode, "输入验证码错误");
 			return INPUT;
 		}
 		String admID = userAdminService.hasUser(name, password);
 		if(null == admID || "".equals(admID)){
+			addFieldError(name, "输入用户名或密码错误");
 			return INPUT;
 		}
 		UserAdminModel userAdm = userAdminService.findEntityById(admID);

@@ -31,12 +31,12 @@
           <ul class='sitemu'>
             <li>
               <div class='items'>
-                <div class='fllct'><a href='Seller/Change/pwd-Change.jsp' target='main'>修改密码</a></div>
+                <div class='fllct'><a href="javascript:alert('待定')">修改密码</a></div>
               </div>
             </li>
             <li>
               <div class='items'>
-                <div class='fllct'><a href='Seller/Change/info-Change.jsp' target='main'>修改信息</a></div>
+                <div class='fllct'><a href="javascript:alert('待定')" target='main'>修改信息</a></div>
               </div>
             </li>
             <li>

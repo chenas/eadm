@@ -46,7 +46,7 @@ jQuery(function () {
         <table id="login">
         	<tr>
             	<td>账号</td>
-                <td><input type="text" name="name" id="username" size="25" style="background:url(Seller/skin/images/username_bg.gif) left no-repeat #FFF; border:1px #ccc solid;height: 20px; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: 800; margin:0; padding-left: 24px;" /></td>
+                <td><input type="text" name="name" id="username" size="25" value='<s:property value="name" />' style="background:url(Seller/skin/images/username_bg.gif) left no-repeat #FFF; border:1px #ccc solid;height: 20px; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: 800; margin:0; padding-left: 24px;" /></td>
                 <td><div class="errorAndmes"><s:fielderror><s:param>name</s:param></s:fielderror></div></td>
             </tr>
             <tr><td></td></tr>
@@ -55,8 +55,7 @@ jQuery(function () {
             <tr><td></td></tr>
             <tr>
             	<td>密码 </td>
-                <td><input type="password" name="password" id="password" size="25" style="background:url(Seller/skin/images/password_bg.gif) left no-repeat #FFF; border: 1px #ccc solid; height: 20px; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: 800; margin:0; padding-left: 24px;" />
-                	<input type="hidden" value="seller" name="status" />
+                <td><input type="password" name="password" id="password" size="25" value='<s:property value="password" />'  style="background:url(Seller/skin/images/password_bg.gif) left no-repeat #FFF; border: 1px #ccc solid; height: 20px; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight: 800; margin:0; padding-left: 24px;" />
                 </td>
                 <td><div class="errorAndmes"><s:fielderror><s:param>password</s:param></s:fielderror></div></td>
             </tr>
@@ -93,5 +92,6 @@ jQuery(function () {
         <div id="btm_right"></div>
     </div>
 </div>
+<s:debug></s:debug>
 </body>
 </html>

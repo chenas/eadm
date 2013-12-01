@@ -42,10 +42,10 @@ public class ProductInfoListAction extends EntityListAction<ProductInfoModel> {
 	
 	//展示所有商品
 	public String allProduct() throws UnsupportedEncodingException{
-		if(queryStr != null){
+		if(queryStr != null && !"".equals(queryStr)){
 			queryStr = java.net.URLDecoder.decode(queryStr, "UTF-8");
 		}
-		if(queryStr == null){
+		if(queryStr == null || "".equals(queryStr)){
 			productInfoFilter.setQueryString(null);
 		}
 		//productInfoFilter.setQueryString(getQueryString(queryStr));

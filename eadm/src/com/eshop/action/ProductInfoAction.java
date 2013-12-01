@@ -27,16 +27,17 @@ public class ProductInfoAction extends EntityCrudAction<ProductInfoModel> {
 
 	//批量下架
 	public String setManyDown(){
-		for(int i=0; i<getIds().length; i++){
-			setOneDown(getIds()[i]);
+		String[] ids = getIds();
+		for(int i=0; i<ids.length; i++){
+			setOneDown(ids[i]);
 		}
-		return SUCCESS;
+		return LIST;
 	}
 
 	//下架
 	public String setDown(){
 		setOneDown(id);
-		return SUCCESS;
+		return LIST;
 	}
 	
 	//批量上架
@@ -44,24 +45,63 @@ public class ProductInfoAction extends EntityCrudAction<ProductInfoModel> {
 		for(int i=0; i<getIds().length; i++){
 			setOneUp(getIds()[i]);
 		}
-		return SUCCESS;
+		return LIST;
 	}
 
 	//上架
 	public String setUp(){
 		setOneUp(id);
-		return SUCCESS;
+		return LIST;
+	}
+	//促销
+	public String setOnsale(){
+		setOneOnsale(id);
+		return LIST;
+	}
+	
+	//批量促销
+	public String setManyOnsale(){
+		for(int i=0; i<getIds().length; i++){
+			setOneOnsale(getIds()[i]);
+		}
+		return LIST;
+	}
+	//不促销
+	public String setUnOnsale(){
+		setOneUnOnsale(id);
+		return LIST;
+	}
+	//批量不促销
+	public String setManyUO(){
+		for(int i=0; i<getIds().length; i++){
+			setOneUnOnsale(getIds()[i]);
+		}
+		return LIST;
+	}
+	
+	//设置促销
+	public void setOneOnsale(String _id){
+		productInfoModel = productInfoService.findEntityById(_id);
+		productInfoModel.setIsOnsale("1");
+		productInfoService.updateEntity(productInfoModel, getLoginUser());		
+	}
+
+	//设置不促销
+	public void setOneUnOnsale(String _id){
+		productInfoModel = productInfoService.findEntityById(_id);
+		productInfoModel.setIsOnsale("0");
+		productInfoService.updateEntity(productInfoModel, getLoginUser());		
 	}
 	
 	//设置上架
-	public void setOneUp(String id){
-		productInfoModel = productInfoService.findEntityById(id);
+	public void setOneUp(String _id){
+		productInfoModel = productInfoService.findEntityById(_id);
 		productInfoModel.setIsSale("1");
 		productInfoService.updateEntity(productInfoModel, getLoginUser());
 	}
 	//设置下架
-	public void setOneDown(String id){
-		productInfoModel = productInfoService.findEntityById(id);
+	public void setOneDown(String _id){
+		productInfoModel = productInfoService.findEntityById(_id);
 		productInfoModel.setIsSale("0");
 		productInfoService.updateEntity(productInfoModel, getLoginUser());
 	}

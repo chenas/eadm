@@ -88,4 +88,15 @@
     <exception-type>java.lang.Exception</exception-type>
     <location>/eshop/pages/common/exception.jsp</location>
   </error-page>
+  
+   <!-- 会员登录过滤器，未登录的会员将不能进入会员中心 -->
+<filter>     
+        <filter-name>loginFilter</filter-name>     
+        <filter-class>com.eshop.commonsys.action.AdminLoginFilter</filter-class>     
+   </filter>     
+     <filter-mapping>  
+        <filter-name>loginFilter</filter-name>  
+        <url-pattern>/*</url-pattern>  
+ </filter-mapping>    
+  
 </web-app>

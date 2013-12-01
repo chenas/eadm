@@ -5,6 +5,17 @@
 
 <struts>
 	<package name="order" namespace="/seller/order" extends="default">
+	
+		<!-- 所有订单列表 -->
+		<action name="allOrder" class="com.eshop.action.OrderMenuListAction" method="allOrder">
+			<result name="list">
+				/Seller/Order/listAll-Order.jsp
+			</result>
+			<result name="login">
+				/pages/login.jsp
+			</result>
+		</action>
+		
 		<!-- 进入新订单列表 -->
 		<action name="newOrder" class="com.eshop.action.OrderMenuListAction" method="newOrder">
 			<result name="list">

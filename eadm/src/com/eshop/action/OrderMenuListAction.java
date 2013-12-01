@@ -43,6 +43,9 @@ public class OrderMenuListAction extends EntityListAction<OrderMenuModel> {
 		return intoList();
 	}
 	
+	public String allOrder(){
+		return intoList();
+	}
 
 	public String listOrder(){
 		IUser user = (IUser) doGetSessionObject("loginUser");

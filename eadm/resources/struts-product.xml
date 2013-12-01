@@ -10,20 +10,61 @@
 			<result name="list">
 				/Seller/Product/list-Product.jsp
 			</result>
-			<result name="login">
-				/pages/login.jsp
-			</result>
 		</action>
 		
 		<!-- 批量删除商品 -->
 		<action name="deleteMany" class="com.eshop.action.ProductInfoAction" method="submitDeleteMany">
 			<result name="list" type="json">
 			</result>
-			<result name="login">
-				/pages/login.jsp
+		</action>
+		
+		<!-- 商品下架 -->
+		<action name="setDown" class="com.eshop.action.ProductInfoAction" method="setDown">
+			<result name="list" type="json">
 			</result>
 		</action>
 		
+		<!-- 商品批量下架 -->
+		<action name="setManyDown" class="com.eshop.action.ProductInfoAction" method="setManyDown">
+			<result name="list" type="json">
+			</result>
+		</action>
+		
+		<!-- 商品上架 -->
+		<action name="setUp" class="com.eshop.action.ProductInfoAction" method="setUp">
+			<result name="list" type="json">
+			</result>
+		</action>
+		
+		<!-- 商品批量上架 -->
+		<action name="setManyUp" class="com.eshop.action.ProductInfoAction" method="setManyUp">
+			<result name="list" type="json">
+			</result>
+		</action>
+		
+		<!-- 促销 -->
+		<action name="setOnsale" class="com.eshop.action.ProductInfoAction" method="setOnsale">
+			<result name="list" type="json">
+			</result>
+		</action>
+		
+		<!--批量 促销 -->
+		<action name="setManyOnsale" class="com.eshop.action.ProductInfoAction" method="setManyOnsale">
+			<result name="list" type="json">
+			</result>
+		</action>
+		
+		<!-- 不促销 -->
+		<action name="setUnOnsale" class="com.eshop.action.ProductInfoAction" method="setUnOnsale">
+			<result name="list" type="json">
+			</result>
+		</action>
+		
+		<!-- 批量不促销 -->
+		<action name="setManyUO" class="com.eshop.action.ProductInfoAction" method="setManyUO">
+			<result name="list" type="json">
+			</result>
+		</action>
 		
 	</package>
 </struts>

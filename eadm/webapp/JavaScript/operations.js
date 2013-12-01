@@ -56,6 +56,7 @@ $("document").ready(function() {
 					}
 			});
 	});
+	
 	// 批量上架
 	$("#upstatus").click(function() {
 
@@ -63,21 +64,15 @@ $("document").ready(function() {
 			if ($(this).attr("checked")=="checked") {
 				count++;
 				var mcheck = $(this).val();
-				pids += mcheck + " ";
+				pids += mcheck + ", ";
 				$(this).attr("checked", false);
 			}
 		}),
 		$.post(
-			 'myshop/up-Product',
-			 { pids : pids,
-			   pageNo : pageNo
+			 'seller/product/setManyUp',
+			 { id : pids
+			  // pageNo : pageNo
 			 },
-			function() {
-				 $.post(
-					'myshop/list-Product',
-					{
-						pageNo : pageNo
-					},
 					function(){
 						if(count != 0){
 							alert("上架成功，赶紧刷新看看");
@@ -87,9 +82,8 @@ $("document").ready(function() {
 						}
 					}
 				 );
-			}
-			);
-	});
+			});
+	
 	// 批量下架
 	$("#downs").click(function() {
 
@@ -97,21 +91,15 @@ $("document").ready(function() {
 			if ($(this).attr("checked")=="checked") {
 				count++;
 				var mcheck = $(this).val();
-				pids += mcheck + " ";
+				pids += mcheck + ", ";
 				$(this).attr("checked", false);
 			}
 		}),
 		$.post(
-			 'myshop/listDown-Product',
-			 { pids : pids,
-			   pageNo : pageNo
+				'seller/product/setManyDown',
+			 { id : pids
+			  // pageNo : pageNo
 			 },
-			function() {
-				 $.post(
-					'myshop/list-Product',
-					{
-						pageNo : pageNo
-					},
 					function(){
 						if(count != 0){
 							alert("下架成功，赶紧刷新看看");
@@ -121,17 +109,17 @@ $("document").ready(function() {
 						}
 					}
 				 );
-			}
-			);
-	});
+			});
 	
 	//刷新商品
 	$("#refresh").click(function(){
+		var storeName = "";
+		storeName = $("#queryStr").val();
 		if($.browser.msie) { 
-			window.location.href="myshop/list-Product?pageNo="+pageNo; 
+			window.location.href="seller/product/allProduct?queryStr="+encodeURI(encodeURI(storeName)); 
 		}else
 			{
-			$("#refresh").attr("href" ,"myshop/list-Product?pageNo="+pageNo);
+			$("#refresh").attr("href" ,"seller/product/allProduct?queryStr="+encodeURI(encodeURI(storeName)));
 		}
 	});
 	
@@ -142,21 +130,14 @@ $("document").ready(function() {
 			if ($(this).attr("checked")=="checked") {
 				count++;
 				var mcheck = $(this).val();
-				pids += mcheck + " ";
+				pids += mcheck + ", ";
 				$(this).attr("checked", false);
 			}
 		}),
 		$.post(
-			 'myshop/listYuanjia-Product',
-			 { pids : pids,
-			   pageNo : pageNo
+				 'seller/product/setManyUO',
+			 { id : pids
 			 },
-			function() {
-				 $.post(
-					'myshop/list-Product',
-					{
-						pageNo : pageNo
-					},
 					function(){
 						if(count != 0){
 							alert("设置成功，赶紧刷新看看");
@@ -167,7 +148,7 @@ $("document").ready(function() {
 					}
 				 );
 			});
-	});
+
 	//批量促销
 	$("#cuxiao").click(function() {
 
@@ -175,14 +156,13 @@ $("document").ready(function() {
 			if ($(this).attr("checked")=="checked") {
 				count++;
 				var mcheck = $(this).val();
-				pids += mcheck + " ";
+				pids += mcheck + ", ";
 				$(this).attr("checked", false);
 			}
 		}),
 		$.post(
-			 'myshop/listCuxiao-Product',
-			 { pids : pids,
-			   pageNo : pageNo
+			 'seller/product/setManyOnsale',
+			 { id : pids
 			 },
 			function() {
 					if(count != 0){
@@ -191,10 +171,13 @@ $("document").ready(function() {
 					}else{
 						alert("没选中任何项");
 					}});
-	});	
+	
+	
+	
+	});
 	
 	//确认新订单
-	$("#comfirNew").click(function(){
+	/*$("#comfirNew").click(function(){
 		$(":checkbox").each(function() {
 			if ($(this).attr("checked")=="checked") {
 				count++;
@@ -215,10 +198,10 @@ $("document").ready(function() {
 						}else{
 							alert("没选中任何项");
 						}});
-	});	
+	});	*/
 	
 	//导出excel
-	$("#export").click(function(){
+/*	$("#export").click(function(){
 		isdaochu = true;
 	});
 	
@@ -251,7 +234,7 @@ $("document").ready(function() {
 			return;
 		}
 		
-	});	
+	});	*/
 	
 	/*订单刷新*/
 	$("#refreshNew0").click(function(){
@@ -294,8 +277,9 @@ $("document").ready(function() {
 			$("#refreshNewAll").attr("href" ,"myshop/listAll-Order?pageNo="+pageNo);
 		}
 	});
-});
-
+	});	
+	
+	
 //设定时间更新显示新订单情况
 /*$(function(){
 		var newOrder ="";
@@ -325,3 +309,33 @@ $("document").ready(function() {
 	     window.onload = newOrder;}
 	     );
 */
+
+
+//单个上架
+function upOne(id){
+	$.ajax({
+		url : 'seller/product/setUp',
+		type : 'post',
+		dataType : 'json',
+		data : {id: id},
+		success:
+			function(data){
+			//console.log(data);
+			$("#"+id+"1").text('下架');
+		}
+	});
+}
+//单个下架
+function downOne(id){
+	$.ajax({
+		url : 'seller/product/setDown',
+		type : 'post',
+		dataType : 'json',
+		data : {id: id},
+		success:
+			function(data){
+			//console.log(data);
+			$("#"+id+"1").text('上架');
+		}
+	});
+}

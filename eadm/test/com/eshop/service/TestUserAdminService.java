@@ -28,9 +28,9 @@ public class TestUserAdminService {
 	@Test
 	public void testInsert(){
 		UserAdminModel adminModel = new UserAdminModel();
-		adminModel.setAdminName("admin");
+		adminModel.setAdminName("usstlife");
 		adminModel.setAdminRole("admin");
-		adminModel.setPassword(utilService.getMD5String("123456"));
+		adminModel.setPassword(utilService.getMD5String("usstlife1010"));
 		userAdminService.insertEntity(adminModel, null);
 	}
 

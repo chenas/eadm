@@ -99,7 +99,7 @@ $(document).ready(function(){
 	<td><s:property value="#key.totalpris" /></td>
 	<%-- <td><s:property value="#key.phone" /></td> --%>
 	<%-- <td><s:property value="#key.fianladdr" /></td> --%>
-	<td><a id="edit" href='javascript:void(0)' >确认</a></td>
+	<td><a id="edit" href="javascript:alert('待定')" >确认</a></td>
 </tr>
 </s:iterator>
 </s:else>
